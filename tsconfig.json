@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./", 
+    "paths": {
+      "lassa-alert/*": ["./*"],
+    },
+  },
+  "extends": "expo/tsconfig.base",
+}
