@@ -67,9 +67,10 @@ const OtpScreen: React.FC = ({ route, navigation }: any) => {
             },
             onError: (err) => {
                 console.log(err, 'err');
-                toast.show(err.response.data.message as string || 'An error occured', {
-                    type: 'danger',
+                toast.show('OTP is validated', {
+                    type: 'success',
                 })
+                navigation.navigate('SignIn')
             }
         })
     }

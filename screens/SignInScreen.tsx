@@ -23,11 +23,7 @@ const SignInScreen: React.FC<Props> = ({ navigation }) => {
     }
     const handleSignIn = () => {
         signInUser(loginData, {
-            onSuccess: (data) => {
-                console.log(data)
-            },
             onError: (err) => {
-                console.log(err)
                 toast.show(err.response.data.message as string || 'An error occured', {
                     type: 'danger',
                 })
@@ -75,7 +71,7 @@ const SignInScreen: React.FC<Props> = ({ navigation }) => {
                         disabled={isLoading}
                         className="bg-[#40B885] items-center justify-center p-3 rounded-md mt-10"
                     >
-                        {false ? <ActivityIndicator size="small" color="white" /> :
+                        {isLoading ? <ActivityIndicator size="small" color="white" /> :
                         <Text className="text-xl text-white font-bold ">Sign In </Text> }
                     </TouchableOpacity>
 

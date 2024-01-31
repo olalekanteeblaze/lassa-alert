@@ -35,6 +35,7 @@ const SignupScreen: React.FC<Props> = ({ navigation }) => {
                 navigation.navigate('Otp')
             },
             onError: (err) => {
+                console.log(err)
                 toast.show(err.response.data.message as string || 'An error occured', {
                     type: 'danger',
                 })

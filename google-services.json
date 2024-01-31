@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "447297614339",
+    "project_id": "lassa-alert-204eb",
+    "storage_bucket": "lassa-alert-204eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447297614339:android:b55f39292f66d4a201d436",
+        "android_client_info": {
+          "package_name": "com.lassaalert.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHLSeNzFHDioqcE2k7__iWrFvBhj1AT1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

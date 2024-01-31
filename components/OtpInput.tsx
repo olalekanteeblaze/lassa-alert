@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import { Keyboard, Pressable, Text, TextInput, View } from 'react-native';
+import { Keyboard, Pressable, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
 import { Grid } from 'react-native-easy-grid';
 
 type OtpInputProps = {
@@ -12,7 +12,7 @@ const OtpInput: React.FC<OtpInputProps> = ({ getOtp }) => {
     const ref = useRef<{ visited: boolean }>({ visited: false })
     useEffect(() => {
         if(!ref.current.visited) {
-            otpTextInput.focus()
+            otpTextInput?.focus()
             ref.current.visited = true
         }
     },[])
@@ -30,11 +30,12 @@ const OtpInput: React.FC<OtpInputProps> = ({ getOtp }) => {
     const renderInputs = useCallback(() => {
         const inputs = Array(6).fill(0);
         const txt = inputs.map(
-            (i, j) => <Pressable onPress={() => {
-                otpTextInput.focus()
+            (i, j) => <TouchableOpacity onPress={() => {
+                console.log(otpTextInput, 'otpTextInput')
+                otpTextInput?.focus()
             }} key={j} className={`border-2 ${j === otp.length ? 'border-[#40B885]' : 'border-none'}  w-12 h-20 bg-[#D8D8D8] rounded-lg align-middle justify-center ml-2`}>
                 <Text className="text-5xl text-[#40B885] mt-10 h-20 text-center">{otp[j]}</Text>
-            </Pressable>
+            </TouchableOpacity>
         );
         return txt;
     }, [otp])

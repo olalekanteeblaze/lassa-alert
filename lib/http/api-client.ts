@@ -13,7 +13,7 @@ import { IApiClient } from 'lassa-alert/types/api-client.type';
 // helper function to create new instance of axios client on demand
 export const createApiClient = () => {
     const AxiosInstance = axios.create({
-        baseURL: 'https://lassa-alert-system-29e01ab50dd3.herokuapp.com/api/v1',
+        baseURL: 'https://lassa-alert-system-1d7a7ac7a794.herokuapp.com/api/v1',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -43,10 +43,6 @@ export const createApiClient = () => {
 
     // configure response interceptors
     AxiosInstance.interceptors.response.use(responseInterceptor, (error) => Promise.reject(error));
-    // AxiosInstance.interceptors.response.use(responseInterceptor, (error) => {
-    //     console.log(error.response.data.message, 'error message');
-    //     return Promise.reject(error);
-    // });
 
     // custom ApiClient object
     const ApiClient: IApiClient = {
@@ -59,7 +55,6 @@ export const createApiClient = () => {
             return response?.data!;
         },
         put: async (url: string, data?: any, _config?: AxiosRequestConfig) => {
-            console.log(data, 'data')
             const response = await AxiosInstance.put(url, data, _config);
             return response?.data!;
         },

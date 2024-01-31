@@ -6,4 +6,5 @@ export type RootStackParamList = {
     Main: undefined;
     Settings: undefined;
     Notifications: undefined;
+    Prediction: undefined;
 }

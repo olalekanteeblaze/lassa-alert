@@ -2,6 +2,7 @@ import { SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-na
 import { BellAlertIcon, Cog8ToothIcon } from "react-native-heroicons/outline"
 import { BarChart } from 'react-native-chart-kit'
 import { useNavigation } from "@react-navigation/native";
+import useAuth from "lassa-alert/hooks/useAuth";
 
 const HomeScreen = () => {
     const data = {
@@ -13,15 +14,16 @@ const HomeScreen = () => {
         ]
     };
     const navigation = useNavigation()
+    const { authData } = useAuth()
+    const { firstname, lastname, email } = authData
     return (
         <SafeAreaView>
             <ScrollView className="bg-[#F5F5F5] pt-6">
-                {/* <Text>Home screen</Text> */}
                 <View className="bg-[#40B885] px-4 py-2 mx-4 rounded-md flex flex-row items-center justify-between">
                     <View>
                         <Text className="text-white text-lg">Welcome,</Text>
-                        <Text className="text-white font-bold text-xl">Jane Doe</Text>
-                        <Text className="text-white">Jane@doe.com</Text>
+                        <Text className="text-white font-bold text-xl">{firstname} {lastname}</Text>
+                        <Text className="text-white">{email}</Text>
                     </View>
                     <View className="flex flex-row">
                         <TouchableOpacity onPress={() => navigation.navigate('Notifications')}>
